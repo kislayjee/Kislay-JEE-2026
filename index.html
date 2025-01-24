@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kislay Kashyap</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('3.jpg') no-repeat center center/cover;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Adding transparency for text readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: white;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: white;
+            margin-top: 10px;
+        }
+        #countdown-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        #countdown-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+        #countdown {
+            font-size: 1.2rem;
+            color: white;
+        }
+    </style>
+    <script>
+        function startCountdown() {
+            const targetDate = new Date("2026-01-15T00:00:00").getTime();
+
+            setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = targetDate - now;
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML = `${days} DAYS, ${hours} HOURS, ${minutes} MINUTES, ${seconds} SECONDS`;
+            }, 1000);
+        }
+    </script>
+</head>
+<body onload="startCountdown()">
+    <div class="container">
+        <img src="1.jpg" alt="Profile Photo">
+        <h1>KISLAY KASHYAP</h1>
+        <h2>IIT JEE 2026 ASPIRANT</h2>
+        <div id="countdown-box">
+            <div id="countdown-title">THE MOMENT OF TRUTH IN......</div>
+            <div id="countdown">Loading...</div>
+        </div>
+    </div>
+</body>
+</html>
